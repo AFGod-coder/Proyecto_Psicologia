@@ -1,428 +1,274 @@
-body{
-  padding: 0;
-  margin: 0;
-  font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* ESTILOS GENERALES */
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.contacto-whatsapp a {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-}
-.contacto-whatsapp a img{
-  height: 70px;
-  width: 70px;
+h1, h2, h3 {
+  font-family: 'Lemon', serif;
 }
 
-.contacto-whatsapp a img:hover {
-  height: 75px;
-	width: 75px;
-}
-
-/* Encabezado */
-
-
-/* PALABRA CAMBIANTE */
-
-div.contenedor-palabra-d{
-  margin-top: 50px;
-}
-
-.contenedor-palabra{
-  width: 300px;
-  height: 40px;
-  color: #ff0000;
-  font-size: 40px;
-  line-height: 40px;
-  display: flex;
-  position: relative;
- top: 0px;
- right: 0px;
- left: 0px;
- bottom: 0px;
- margin: auto;
- overflow: hidden;
- width: auto;
- justify-content: center;
- z-index: 2;
-}
-
-ul.cambio{
-  list-style: none;
-  padding-left: 10px;
-  animation: cambiar 7s infinite;
-  z-index: 2;
-}
-
-
-
-@keyframes cambiar {
-  0%{margin-top: 0px;}
-  20%{margin-top: 0px;}
-
-  25%{margin-top: -40px;}
-  50%{margin-top: -40px;}
-
-  55%{margin-top: -80px;}
-  80%{margin-top: -80px;}
-
-  85%{margin-top: -40px;}
-  95%{margin-top: -40px;}
-
-  100%{margin-top: 0px;}
-}
-
-/* PALABRA CAMBIANTE */
-
-/* BARRA DE NAVEGACION */
-nav{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: min-content;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0px 0px 5px #00000088;
-}
-
-nav>ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.5rem;
-  height: min-content;
-}
-
-nav a{
+ a {
   text-decoration: none;
   color: black;
 }
 
-nav img{
-  height: 3rem;
+/* NAV */
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: .5rem 1rem;
+  justify-content: space-between;
+  z-index: 20;
+  box-shadow: 6px 5px 10px 1px black ;
 }
 
-.talleres{
-  display: none;
-  position: absolute;
-  list-style: none;
-  background-color: white;
-  width: 11rem;
-  height: 7rem;
-  border-radius: 5%;
-  border: solid 1px  ;
-}
-
-nav>ul>li:hover{
-  .talleres{
-    display: block;
-  }
-}
-
-
-
-/* BOTON PRINCIPAL */
-
-.contenedor{
-  width: auto;
-  height: 80px;
+nav > div {
   display: flex;
   align-items: center;
-  justify-content: center;
+  width: max-content;
 }
 
-.butons{
+.logo {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 .2rem;
+}
+
+.titulo-logo {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Lemon';
+  margin-right: 1rem;
+}
+
+nav > ul {
+  display: flex;
+  flex-grow: 1;
+  list-style: none;
+  gap: .8rem;
+  font-size: 1rem; 
+  width: max-content;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+ul > li > a:hover{
+  font-weight: 700;
+  color:#3E3EF4;
+}
+
+nav > button {
+  display: flex;
+  flex-grow: 0;
+  width: min-content;
+  padding: 0 2%;
+  justify-content: center;
+  border-radius: 1rem;
+  height: 1.5rem;
+  align-items: center;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: white;
+  font-family: 'Lemon', serif;
+}
+
+nav > button:hover {
+  border: transparent;
+  background-color: #3E3EF4;
+  color: white;
+  box-shadow: 6px 5px 10px 1px #0000008b;
+  transition-duration: .5s;
+}
+
+
+/* CAROUSEL */
+
+.slider-box {
   width: 100%;
   height: auto;
-  background-color: #ff000000;
-  border-radius: 15px;
-  border: none;
-  padding: 12px 15px;
-  color: rgba(255, 0, 0, 0);
-  margin: 16px 0;
-  font-size: 16px;
-  position: relative;
   overflow: hidden;
+  aspect-ratio: 16/7;
+  box-shadow: inset 0 100px 1px 0 black, inset 0 -5px 10px 0 black;
+}
+
+.slider-box > ul {
   display: flex;
-  justify-content: center;
+  width: 300%;
+  animation: slide 10s infinite alternate ease-in-out;
 }
 
-.boton{
+.slider-box li {
+  width: 100%;
+  list-style: none;
   position: relative;
-  z-index: 4;
-  border: 0px solid transparent;
-  background-color: transparent;
 }
 
-.butons:hover{
-  box-shadow: 0px 0px 5px #00000088;
-}
-
-.butons:hover::before{
-  content: "";
+.texto {
   position: absolute;
-  top: -40px;
-  /* align-items: center;
-  justify-content: center; */
-  height: 150px;
-  width: 150px;
-  background-image: conic-gradient(rgb(55, 51, 245) 20deg, transparent 120deg);
-  animation: rotar 3s linear infinite;
+  text-align: center;
+  padding: 0 10rem;
+  top: 10%;
+  color: white;
 }
 
-
-
-@keyframes rotar{
-  from{
-      transform: rotate(-360deg);
-  }
-
-  to{
-      transform: rotate(360deg);
-  }
+.texto h2 {
+  font-size: 300%;
+  margin-bottom: 2rem;
 }
 
-.butons::after{
-  content: "";
-  position: absolute;
-  top: 1.5px;
+.slider-box img {
+  width: 100%;
+}
+
+@keyframes slide {
+  0% { margin-left: 0%;}
+  20% { margin-left: 0%;}
+
+  40% { margin-left: -100%;}
+  60% { margin-left: -100%;}
+
+  80% { margin-left: -200%;}
+  100% { margin-left: -200%;}
+}
+
+/* MAIN */
+
+main {
+  padding: 2% 5%;
+}
+
+main > section:nth-child(1) {
+  display: flex;
+  padding: 2% 0;
   justify-content: center;
-  height: 47px;
-  width: 125px;
-  background-color: #F8F9FA;
-  border-radius: 20%;
+  flex-wrap: wrap;
 }
 
+h1 {
+  padding: 1% 10%;
+}
 
+hr {
+  margin: 4% 0;
+}
 
+/* MISION Y VISION*/
 
+.mision_vision {
+  display: flex;
+  gap: 5%;
+  margin-bottom: 5%;
+}
 
-/* CARRUSEL */
+.mision_vision h2 {
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 4%;
+  color: #3E3EF4;
+}
 
-  .slider{
-    display: flex;
-    margin: 0px;
-    padding: 0px;
-  }
-  /* .slider ul{
-    display: flex;
-    animation: cambio 25s infinite
-    alternate linear;
-    width: 400%;
-  } */
+.mision_vision img {
+  width: 40%;
+  aspect-ratio: 13/9;
+}
 
+/* GRUPO DE IMAGENES */
 
-  @keyframes cambio {
-    0%{margin-left: 0%;}
-    20%{margin-left: 0%;}
+.grupo_imagenes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    25%{margin-left: -100%;}
-    40%{margin-left: -100%;}
+.grupo_imagenes > div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  line-height: 2rem;
+  font-size: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
 
-    50%{margin-left: -200%;}
-    70%{margin-left: -200%;}
+.grupo_imagenes h3 {
+  text-align: center;
+  margin-bottom: 2%;
+  font-size: 2rem;
+}
 
-    75%{margin-left: -300%;}
-    100%{margin-left: -300%;}
-  }
+.grupo_imagenes img {
+  margin: 1%;
+}
 
-  /* Estilos para los textos y elementos --->*/
-  h2 {
-    color: #212529;
-    text-align: center;
-  }
+/* PALABRA CAMBIANTE */
 
-  li{
-    font-family: 'garamond';
-  }
+.grupo_imagenes > div > ul {
+  list-style: none;
+  padding-left: 10px;
+  font-family: 'Lemon', serif;
+  animation: cambiar 9s infinite alternate ease-in-out;
+  color: #3E3EF4;
+}
 
-  p {
-    color: #212529;
-    font-family: 'garamond';
-  }
+@keyframes cambiar {
+  0%{margin-top: 0;}
+  20%{margin-top: 0;}
 
-    /* <---Estilos para los textos y elementos */
+  40%{margin-top: -2rem;}
+  60%{margin-top: -2rem;}
 
-  /* Estilo Section*/
-
-  section{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #f8f9fa;
-  }
-
-  .titulo-s1{
-    text-align: center;
-    font-size: 40px;
-    font-weight: 600;
-    color: #4C5166;
-  }
-
-  .primera-seccion{
-    display: flex;
-    flex-direction: row;
-    padding-top: 15px;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 0px;
-    margin-top: 50px;
-  }
-
-  .sub-1{
-    margin-right: 100px;
-    height: 100%;
-    width: 150%;
-    font-size: 18px;
-    font-weight: 800;
-
+  80%{margin-top: -4rem;}
+  100%{margin-top: -4rem;}
   }
 
-  .sub-2{
-    width: 200%;
-    margin-right: 100px;
-    align-items: center;
-    text-align: justify;
-  }
+/* PRE-FOOTER */
 
-  .sub-2 img{
-    height: 100%;
-    width: 100%;
-  }
+.pre-footer{
+  display: flex;
+  margin-top: 5%;
+  gap: 5%;
+}
 
-  div.sub-3 h1{
-    text-align: center ;
-    font-family: 'calibri';
-    color: #6161de;
-  }
+.pre-footer p{
+  margin: 5% 0;
+}
 
-  .sub-3{
-    font-family: 'garamond';
-    font-size: 18px;
-    text-align: justify;
-  }
+.pre-footer p span{
+  font-weight: 700;
+}
 
-  div.sub-4 h1{
-    text-align: center ;
-    font-family: 'calibri';
-    color: #6161de;
-  }
+.logos-svg {
+  width: 2rem;
+}
 
-  .sub-4{
-    font-family: 'garamond';
-    font-size: 18px;
-    margin-right: 80px;
-    text-align: justify;
-  }
+footer{
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .texto-bienvenida{
-    font-family: 'garamond';
-    font-size: 22px;
-    padding: 30px;
-  }
+footer div {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
 
-  .texto-bienvenida span{
-    color: rgb(35, 164, 149);
-  }
+.politicas {
+  display: flex;
+  width: 100%;
+}
 
-  .parrafo-medio{
-    font-size:20px;
-    font-weight: 600;
-    color: #4C5166;
-    justify-content: center;
-    text-shadow: 0px 0px 25px rgba(0, 0, 0, 0)fff;
-  }
-
-  .bloque-imagenes{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-    }
-
-
-    .seccion-tres{
-      display: flex;
-      margin: 50px;
-    }
-
-    .parrafo-dos{
-      position: relative;
-      text-align: justify;
-    }
-
-    .parrafo-dos span{
-      font-weight: 900;
-    }
-
-    .sub{
-      color: #23A495;
-    }
-
-
-
-    .video{
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding-left: 50px;
-    }
-    /* ESTILO FOOTER */
-
-    .footer{
-      background-color: #dadce0a3;
-      background-repeat: no-repeat;
-      background: cover;
-      background-attachment: fixed;
-      width: auto;
-      height: 100%;
-      box-shadow: 0px 10px 15px #000000;
-    }
-
-
-
-    .footer a{
-      text-decoration: none;
-      color: black;
-    }
-
-    .footer .container-seccion{
-      justify-content: center;
-    }
-
-    .social-icons{
-      display: flex;
-      flex-direction: column;
-    }
-
-
-    div.seccion-de-arriba{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 50px;
-      padding-left: 100px;
-      padding-right: 100px;
-    }
-
-
-    div.seccion-de-abajo{
-      background-color: rgba(255, 255, 255, 0);
-      justify-content: center;
-      display: flex;
-      text-align: center;
-    }
-
-    .container-seccion img{
-      width: 60%
-    }
-
-
+.politicas > p{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
